@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.bezkoder.spring.jpa.h2.model.Tutorial;
 import com.bezkoder.spring.jpa.h2.repository.TutorialRepository;
 
-@CrossOrigin(origins = "http://localhost:8081")
+@CrossOrigin(origins = "http://localhost:8080")
 @RestController
 @RequestMapping("/api")
 public class TutorialController {
@@ -37,7 +37,7 @@ public class TutorialController {
       if (title == null)
         tutorialRepository.findAll().forEach(tutorials::add);
       else
-        tutorialRepository.findByTitleContainingIgnoreCase(title).forEach(tutorials::add);
+        tutorialRepository.findByTitleContaining(title).forEach(tutorials::add);
 
       if (tutorials.isEmpty()) {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
