@@ -95,3 +95,7 @@ Run both Back-end & Front-end in one place:
 mvn spring-boot:run
 ```
 
+mvn clean verify sonar:sonar \
+    -Dsonar.projectKey=demo-qube \
+    -Dsonar.host.url=http://192.168.1.11:32781 \
+    -Dsonar.login=sqp_8e02746f62f339f8291dbbb20823bc0118cb9a1d
