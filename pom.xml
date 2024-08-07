@@ -54,7 +54,7 @@
     <repositories>
         <repository>
             <id>td-maven-repo</id>
-            <url>http://192.168.1.11:32782/repository/td-maven-repo/</url>
+            <url>http://192.168.1.199:8080/repository/td-maven-repo/</url>
             <releases>
                 <enabled>true</enabled>
             </releases>
@@ -67,11 +67,11 @@
     <distributionManagement>
         <repository>
             <id>td-maven-repo</id>
-            <url>http://192.168.1.11:32782/repository/td-maven-repo/</url>
+            <url>http://192.168.1.199:8080/repository/td-maven-repo/</url>
         </repository>
         <snapshotRepository>
             <id>td-maven-repo</id>
-            <url>http://192.168.1.11:32782/repository/td-maven-repo/</url>
+            <url>http://192.168.1.199:8080/repository/td-maven-repo/</url>
         </snapshotRepository>
     </distributionManagement>
 
