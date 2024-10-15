@@ -16,7 +16,7 @@ mvn clean install
 ```
 mvn spring-boot:run
 ```
-
+## clean verify
 mvn clean verify sonar:sonar \
     -Dsonar.projectKey=demo-qube \
     -Dsonar.host.url=http://192.168.1.199:8080 \
