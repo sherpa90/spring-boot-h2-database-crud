@@ -19,7 +19,7 @@ mvn spring-boot:run
 
 # Despliegue en Kubernetes usando `kubectl` y `minikube`
 
-Este documento describe cómo desplegar una aplicación Spring Boot en Kubernetes utilizando `minikube`.
+Este apartado describe cómo desplegar una aplicación Spring Boot en Kubernetes utilizando `minikube`.
 
 ## Pasos para el despliegue:
 
