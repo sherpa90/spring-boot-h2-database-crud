@@ -9,9 +9,9 @@ http://localhost:8080/tutorials
 http://localhost:8080/h2-console
 
 ## Run Spring Boot application paso 1
-
+```
 mvn clean install
-
+```
 ## Run Spring Boot application paso 2
 ```
 mvn spring-boot:run
