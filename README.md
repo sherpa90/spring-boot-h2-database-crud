@@ -16,3 +16,19 @@ mvn clean install
 ```
 mvn spring-boot:run
 ```
+
+# Despliegue en Kubernetes usando `kubectl` y `minikube`
+
+Este documento describe cómo desplegar una aplicación Spring Boot en Kubernetes utilizando `minikube`.
+
+## Pasos para el despliegue:
+
+```bash
+minikube start --insecure-registry true
+eval $(minikube docker-env)
+sudo docker build -t td-springboot ./springboot-app
+minikube image load td-springboot
+kubectl apply -f kubernetes.yaml
+minikube service springboot-loadbalancer -n talento-digital --url
+minikube delete
+
