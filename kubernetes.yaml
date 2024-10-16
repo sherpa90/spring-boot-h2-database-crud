@@ -1,0 +1,89 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: talento-digital
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: talento-digital
+  name: postgres-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      containers:
+      - name: postgres
+        image: postgres:17-alpine
+        env:
+        - name: POSTGRES_USER
+          value: "myuser"
+        - name: POSTGRES_PASSWORD
+          value: "mypassword"
+        - name: POSTGRES_DB
+          value: "mydb"
+        ports:
+        - containerPort: 5432
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres-service
+  namespace: talento-digital
+spec:
+  selector:
+    app: postgres
+  ports:
+  - name: postgres
+    port: 5432
+    targetPort: 5432
+  type: ClusterIP
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springboot-deployment
+  namespace: talento-digital
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: td-springboot
+  template:
+    metadata:
+      labels:
+        app: td-springboot
+    spec:
+      containers:
+      - name: td-springboot
+        image: td-springboot
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: DATABASE_URL
+          value: jdbc:postgresql://postgres-service:5432/mydb
+        - name: DATABASE_USER
+          value: myuser
+        - name: DATABASE_PASSWORD
+          value: mypassword
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: springboot-service
+  namespace: talento-digital
+spec:
+  selector:
+    app: td-springboot
+  ports:
+  - name: http
+    port: 8080
+    targetPort: 8080
+  type: NodePort

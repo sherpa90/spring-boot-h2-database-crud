@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springboot-deployment
+  namespace: talento-digital
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: td-springboot
+  template:
+    metadata:
+      labels:
+        app: td-springboot
+    spec:
+      containers:
+      - name: td-springboot
+        image: td-springboot
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: DATABASE_URL
+          value: jdbc:postgresql://postgres-service:5432/mydb
+        - name: DATABASE_USER
+          value: myuser
+        - name: DATABASE_PASSWORD
+          value: mypassword
+        ports:
+        - containerPort: 8080
