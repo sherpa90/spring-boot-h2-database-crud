@@ -1,4 +1,4 @@
-# Spring Boot H2 Database CRUD example: Building Rest API with Spring Data JPA
+# Spring Boot H2 Database CRUD APP Centro de Eventos Talento Digital 2024.-
 
 ## Run Spring Boot local
 
@@ -16,8 +16,3 @@ mvn clean install
 ```
 mvn spring-boot:run
 ```
-## clean verify
-mvn clean verify sonar:sonar \
-    -Dsonar.projectKey=demo-qube \
-    -Dsonar.host.url=http://192.168.1.199:8080 \
-    -Dsonar.login=sqp_90f65a6022352f573b2369fe6860ef6e5bb5e35e
