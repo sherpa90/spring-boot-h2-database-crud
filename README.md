@@ -17,6 +17,31 @@ http://localhost:8080/tutorials
 
 http://localhost:8080/h2-console
 
+## Despliegue en `Docker`
+
+# Avanzamos a nuestra carpeta del proyecto
+```
+cd /ruta/a/Springboot_APP
+```
+
+# Despliegue en `Docker` 
+```
+docker build -t nombre-de-la-imagen .
+```
+
+# Despliegue en `Docker` 
+```
+docker build -t nombre-de-la-imagen .
+```
+
+# Despliegue en `Docker` 
+```
+docker run -d -p 8080:8080 nombre-de-la-imagen
+```
+
+http://localhost:8080/tutorials
+
+
 # Despliegue en Kubernetes usando `kubectl` y `minikube`
 
 Este apartado describe cómo desplegar una aplicación Spring Boot en Kubernetes utilizando `minikube`.
