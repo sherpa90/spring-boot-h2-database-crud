@@ -31,9 +31,6 @@ cd /ruta/a/Springboot_APP
 docker build -t nombre-de-la-imagen .
 ```
 ```
-docker build -t nombre-de-la-imagen .
-```
-```
 docker run -d -p 8080:8080 nombre-de-la-imagen
 ```
 
